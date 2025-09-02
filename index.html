@@ -1,13 +1,88 @@
-html
-Copy code
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple HTML Page</title>
+    <title>Leaderboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f5f6fa;
+            margin: 0;
+            padding: 40px;
+        }
+        .leaderboard {
+            max-width: 500px;
+            margin: auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            padding: 24px;
+        }
+        h1 {
+            text-align: center;
+            color: #222;
+            margin-bottom: 24px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px 8px;
+            text-align: left;
+        }
+        th {
+            background: #f0f2f5;
+            color: #555;
+            font-weight: 600;
+        }
+        tr {
+            border-bottom: 1px solid #eee;
+        }
+        tr:last-child {
+            border-bottom: none;
+        }
+        td.rank {
+            font-weight: bold;
+            color: #3498db;
+        }
+        td.name {
+            color: #222;
+        }
+        td.score {
+            color: #27ae60;
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>This is a simple HTML file.</p>
+    <div class="leaderboard">
+        <h1>Leaderboard</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="rank">1</td>
+                    <td class="name">Alice</td>
+                    <td class="score">1500</td>
+                </tr>
+                <tr>
+                    <td class="rank">2</td>
+                    <td class="name">Bob</td>
+                    <td class="score">1200</td>
+                </tr>
+                <tr>
+                    <td class="rank">3</td>
+                    <td class="name">Charlie</td>
+                    <td class="score">900</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
