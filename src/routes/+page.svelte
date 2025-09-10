@@ -13,7 +13,7 @@
   let q = '';
 
   onMount(async () => {
-    const res = await fetch('/data/results.json');
+    const res = await fetch('./data/results.json');
     rows = await res.json();
   });
 
