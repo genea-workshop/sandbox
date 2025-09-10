@@ -1,97 +1,50 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+  import { onMount } from 'svelte';
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Leaderboard</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #181a20;
-            margin: 0;
-            padding: 40px;
-        }
-        .leaderboard {
-            max-width: 500px;
-            margin: auto;
-            background: #23262f;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-            padding: 24px;
-        }
-        h1 {
-            text-align: center;
-            color: #fff;
-            margin-bottom: 24px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 12px 8px;
-            text-align: left;
-        }
-        th {
-            background: #2a2d3a;
-            color: #b5b8c5;
-            font-weight: 600;
-        }
-        tr {
-            border-bottom: 1px solid #2a2d3a;
-        }
-        tr:last-child {
-            border-bottom: none;
-        }
-        td.rank {
-            font-weight: bold;
-            color: #00aaff;
-        }
-        td.name a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        td.name a:hover {
-            color: #00aaff;
-            text-decoration: underline;
-        }
-        td.score {
-            color: #00ff99;
-            font-weight: 500;
-        }
-    </style>
-</head>
-<body>
-    <div class="leaderboard">
-        <h1>Leaderboard</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="rank">1</td>
-                    <td class="name"><a href="https://example.com/alice" target="_blank">Alice</a></td>
-                    <td class="score">1500</td>
-                </tr>
-                <tr>
-                    <td class="rank">2</td>
-                    <td class="name"><a href="https://example.com/bob" target="_blank">Bob</a></td>
-                    <td class="score">1200</td>
-                </tr>
-                <tr>
-                    <td class="rank">3</td>
-                    <td class="name"><a href="https://example.com/charlie" target="_blank">Charlie</a></td>
-                    <td class="score">900</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</body>
-</html>
+  interface LeaderboardRow {
+    model: string
+    team: string
+    val_f1: number
+    val_mse: number
+    submitted: Date
+  }
+
+  let rows: LeaderboardRow[] = []
+  let q = '';
+
+  onMount(async () => {
+    const res = await fetch('/data/results.json');
+    rows = await res.json();
+  });
+
+  $: filtered = rows
+    .filter(r =>
+      [r.model, r.team].some(v => (v || '').toLowerCase().includes(q.toLowerCase()))
+    )
+    .sort((a, b) => (b.val_f1 ?? 0) - (a.val_f1 ?? 0));
+</script>
+
+<main class="leaderboard">
+  <h1 class="h1">GENEA Leaderboard</h1>
+  <input placeholder="Search..." bind:value={q} />
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th><th>Model</th><th>Team</th><th>Val F1</th><th>Val MSE</th><th>Submitted</th>
+      </tr>
+    </thead>
+    <tbody>
+      {#each filtered as r, i}
+      <tr>
+        <td class="rank">{i + 1}</td>
+        <td class="model">{r.model}</td>
+        <td class="team">{r.team}</td>
+        <td class="score">{r.val_f1}</td>
+        <td class="score">{r.val_mse}</td>
+        <td class="date">{r.submitted}</td>
+      </tr>
+      {/each}
+    </tbody>
+  </table>
+</main>
