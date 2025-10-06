@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>GENEA Initiative</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .column {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 30px 20px;
+      min-width: 320px;
+      flex: 1 1 0;
+    }
+    .column h2 {
+      margin-top: 0;
+      color: #3b547a;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+    .link-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .link-list li {
+      margin-bottom: 16px;
+    }
+    .link-list a {
+      text-decoration: none;
+      color: #2176ae;
+      background: #e8f1fa;
+      padding: 10px 16px;
+      border-radius: 8px;
+      display: block;
+      font-size: 1.07em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .link-list a:hover {
+      background: #2176ae;
+      color: #fff;
+    }
+    @media (max-width: 700px) {
+      .container {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .column {
+        min-width: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- GENEA Challenges Column -->
+    <div class="column">
+      <h2>GENEA Challenges</h2>
+      <ul class="link-list">
+        <li><a href="#">GENEA Challenge 2024</a></li>
+        <li><a href="#">GENEA Challenge 2023</a></li>
+        <li><a href="#">GENEA Challenge 2022</a></li>
+        <li><a href="#">Past Challenges Archive</a></li>
+        <!-- Add or change links as needed -->
+      </ul>
+    </div>
+    <!-- GENEA Leaderboard Column -->
+    <div class="column">
+      <h2>GENEA Leaderboard</h2>
+      <ul class="link-list">
+        <li><a href="#">2024 Leaderboard</a></li>
+        <li><a href="#">2023 Leaderboard</a></li>
+        <li><a href="#">2022 Leaderboard</a></li>
+        <li><a href="#">All-Time Top Teams</a></li>
+        <!-- Add or change links as needed -->
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
