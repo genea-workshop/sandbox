@@ -16,15 +16,6 @@
       text-align: center;
       padding: 30px 15px 18px 15px;
     }
-    .genea-logo {
-      max-width: 48px;
-      width: 12vw;
-      min-width: 32px;
-      height: auto;
-      vertical-align: middle;
-      margin-bottom: 10px;
-      filter: drop-shadow(0 2px 10px rgba(150, 90, 40, 0.04));
-    }
     .genea-desc {
       color: #7a4d23;
       max-width: 580px;
@@ -37,6 +28,21 @@
       border: 1px solid #e2d3c1;
       display: inline-block;
     }
+    /* Footer logo styling */
+    .genea-footer {
+      background: #f6eee3;
+      text-align: center;
+      padding: 36px 0 22px 0;
+    }
+    .genea-logo-bottom {
+      max-width: 140px;
+      width: 32vw;
+      min-width: 80px;
+      height: auto;
+      display: inline-block;
+      filter: drop-shadow(0 3px 14px rgba(150, 90, 40, 0.07));
+      transition: max-width 0.2s;
+    }
     @media (max-width: 600px) {
       .genea-header {
         padding: 16px 2vw 14px 2vw;
@@ -45,8 +51,9 @@
         font-size: 0.97em;
         padding: 7px 5vw;
       }
-      .genea-logo {
-        max-width: 32px;
+      .genea-logo-bottom {
+        max-width: 90px;
+        min-width: 50px;
       }
     }
     .container {
@@ -115,7 +122,6 @@
 </head>
 <body>
   <div class="genea-header">
-    <img src="https://genea-workshop.github.io/2024/img/GENEA_logo.png" alt="GENEA Logo" class="genea-logo">
     <div class="genea-desc">
       <strong>GENEA Initiative:</strong>
       The GENEA (Generation and Evaluation of Non-verbal Agent behavior) Initiative advances research in generating and evaluating human motion and non-verbal behavior for virtual agents. Through annual workshops, challenges, and leaderboards, GENEA fosters collaboration and benchmarking in the community.
@@ -151,6 +157,10 @@
         <li><a href="https://genea-workshop.github.io/2020/">GENEA Workshop 2020</a></li>
       </ul>
     </div>
+  </div>
+  <!-- Logo in footer, centered and large -->
+  <div class="genea-footer">
+    <img src="https://genea-workshop.github.io/2024/img/GENEA_logo.png" alt="GENEA Logo" class="genea-logo-bottom">
   </div>
 </body>
 </html>
