@@ -28,51 +28,50 @@
       border: 1px solid #e2d3c1;
       display: inline-block;
     }
-    /* Footer logo styling */
-    .genea-footer {
-      background: #f6eee3;
-      text-align: center;
-      padding: 36px 0 22px 0;
-    }
-    .genea-logo-bottom {
-      max-width: 140px;
-      width: 32vw;
-      min-width: 80px;
-      height: auto;
-      display: inline-block;
-      filter: drop-shadow(0 3px 14px rgba(150, 90, 40, 0.07));
-      transition: max-width 0.2s;
-    }
-    @media (max-width: 600px) {
-      .genea-header {
-        padding: 16px 2vw 14px 2vw;
-      }
-      .genea-desc {
-        font-size: 0.97em;
-        padding: 7px 5vw;
-      }
-      .genea-logo-bottom {
-        max-width: 90px;
-        min-width: 50px;
-      }
-    }
+
+    /* Responsive Grid Layout */
     .container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 32px;
       max-width: 1180px;
       margin: 50px auto;
       padding: 24px;
+      align-items: stretch;
     }
+
+    /* Two columns for medium screens */
+    @media (max-width: 1050px) {
+      .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        max-width: 830px;
+        margin: 30px auto;
+        padding: 16px;
+      }
+    }
+
+    /* One column for small screens */
+    @media (max-width: 700px) {
+      .container {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+        margin: 16px auto;
+        padding: 9px;
+        gap: 18px;
+      }
+    }
+
     .column {
       background: #fbf6ef;
       border-radius: 18px;
       box-shadow: 0 2px 10px rgba(150, 90, 40, 0.06);
       padding: 32px 22px;
-      min-width: 280px;
-      flex: 1 1 0;
+      min-width: 0;
       border: 1px solid #e2d3c1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     .column h2 {
       margin-top: 0;
@@ -108,14 +107,32 @@
       background: #96623d;
       color: #fff;
     }
-    @media (max-width: 1050px) {
-      .container {
-        flex-direction: column;
-        gap: 20px;
-        max-width: 660px;
+    /* Footer logo styling */
+    .genea-footer {
+      background: #f6eee3;
+      text-align: center;
+      padding: 36px 0 22px 0;
+    }
+    .genea-logo-bottom {
+      max-width: 140px;
+      width: 32vw;
+      min-width: 80px;
+      height: auto;
+      display: inline-block;
+      filter: drop-shadow(0 3px 14px rgba(150, 90, 40, 0.07));
+      transition: max-width 0.2s;
+    }
+    @media (max-width: 600px) {
+      .genea-header {
+        padding: 16px 2vw 14px 2vw;
       }
-      .column {
-        min-width: 0;
+      .genea-desc {
+        font-size: 0.97em;
+        padding: 7px 5vw;
+      }
+      .genea-logo-bottom {
+        max-width: 90px;
+        min-width: 50px;
       }
     }
   </style>
