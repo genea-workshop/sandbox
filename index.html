@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f6eee3; /* milk background */
+      background: #f6eee3;
       margin: 0;
       padding: 0;
     }
@@ -29,36 +29,23 @@
       display: inline-block;
     }
 
-    /* Responsive Grid Layout */
     .container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
       max-width: 1180px;
-      margin: 50px auto;
+      margin: 50px auto 0 auto;
       padding: 24px;
       align-items: stretch;
     }
-
-    /* Two columns for medium screens */
-    @media (max-width: 1050px) {
-      .container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        max-width: 830px;
-        margin: 30px auto;
-        padding: 16px;
-      }
-    }
-
-    /* One column for small screens */
+    /* One column on small screens */
     @media (max-width: 700px) {
       .container {
         grid-template-columns: 1fr;
-        max-width: 520px;
-        margin: 16px auto;
-        padding: 9px;
-        gap: 18px;
+        max-width: 98vw;
+        gap: 16px;
+        padding: 7px;
+        margin: 18px auto 0 auto;
       }
     }
 
@@ -67,7 +54,7 @@
       border-radius: 18px;
       box-shadow: 0 2px 10px rgba(150, 90, 40, 0.06);
       padding: 32px 22px;
-      min-width: 0;
+      /* Remove min-width (let them shrink) */
       border: 1px solid #e2d3c1;
       display: flex;
       flex-direction: column;
@@ -75,7 +62,7 @@
     }
     .column h2 {
       margin-top: 0;
-      color: #96623d; /* brown */
+      color: #96623d;
       letter-spacing: 0.5px;
       margin-bottom: 24px;
       border-bottom: 2px solid #f8e0be;
@@ -107,7 +94,6 @@
       background: #96623d;
       color: #fff;
     }
-    /* Footer logo styling */
     .genea-footer {
       background: #f6eee3;
       text-align: center;
@@ -174,7 +160,6 @@
       </ul>
     </div>
   </div>
-  <!-- Logo in footer, centered and large -->
   <div class="genea-footer">
     <img src="https://genea-workshop.github.io/sandbox/GENEA_logo_no_bkgnd.png" alt="GENEA Logo" class="genea-logo-bottom">
   </div>
